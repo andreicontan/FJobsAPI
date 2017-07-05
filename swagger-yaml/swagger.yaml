@@ -28,8 +28,7 @@ paths:
           schema:
             type: "array"
             items:
-              type: "object"
-              properties: {}
+              $ref: "#/definitions/Job"
     post:
       tags:
       - "jobs"
@@ -67,6 +66,10 @@ paths:
         type: "integer"
         format: "int64"
       responses:
+        200:
+          description: "succesfull operation"
+          schema:
+            $ref: "#/definitions/Job"
         405:
           description: "Invalid imput"
         404:
@@ -81,9 +84,15 @@ paths:
       produces:
       - "application/json"
       parameters:
+      - name: "jobId"
+        in: "path"
+        description: "Job that needs to be updated"
+        required: true
+        type: "integer"
+        format: "int64"
       - in: "body"
         name: "body"
-        description: "Job that needs to be updated"
+        description: "Update job object"
         required: true
         schema:
           $ref: "#/definitions/Job"

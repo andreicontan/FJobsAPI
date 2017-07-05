@@ -1,0 +1,128 @@
+---
+swagger: "2.0"
+info:
+  description: "asdf"
+  version: "1.0.0"
+  title: "Start_App"
+host: "virtserver.swaggerhub.com"
+basePath: "/FJobs/Start_App/1.0.0"
+tags:
+- name: "jobs"
+  description: "What you can do with your Jobs"
+schemes:
+- "https"
+paths:
+  /jobs:
+    get:
+      tags:
+      - "jobs"
+      description: "get all jobs"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        200:
+          description: "Success"
+          schema:
+            type: "array"
+            items:
+              type: "object"
+              properties: {}
+    post:
+      tags:
+      - "jobs"
+      summary: "Add a new job"
+      operationId: "addJob"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Job object that needs to be added"
+        required: true
+        schema:
+          $ref: "#/definitions/Job"
+      responses:
+        200:
+          description: "Job succesfully submitted"
+        405:
+          description: "Invalid input"
+  /jobs/{jobId}:
+    get:
+      tags:
+      - "jobs"
+      summary: "Find Job by ID"
+      operationId: "getJob"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "jobId"
+        in: "path"
+        description: "Insert ID of the desired Job"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        405:
+          description: "Invalid imput"
+        404:
+          description: "Job not found"
+    put:
+      tags:
+      - "jobs"
+      summary: "Update existing job"
+      operationId: "updateJob"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Job that needs to be updated"
+        required: true
+        schema:
+          $ref: "#/definitions/Job"
+      responses:
+        200:
+          description: "Job succesfully updated"
+        400:
+          description: "Invalid ID"
+        404:
+          description: "Job not found"
+    delete:
+      tags:
+      - "jobs"
+      summary: "Delete a Job by ID"
+      operationId: "deleteJob"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "jobId"
+        in: "path"
+        description: "Insert ID of the Job to delete it"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        200:
+          description: "Job succesfully deleted"
+        405:
+          description: "Invalid imput"
+        404:
+          description: "Job not found"
+definitions:
+  Job:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int32"
+        example: 1
+      description:
+        type: "string"
+        example: "Taiat Gardu"

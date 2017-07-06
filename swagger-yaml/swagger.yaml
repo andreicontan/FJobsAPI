@@ -151,7 +151,7 @@ definitions:
       created_date:
         type: "string"
         format: "full-date"
-      start_time:
+      start_date:
         type: "string"
         format: "full-date"
       end_date:

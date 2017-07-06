@@ -11,6 +11,8 @@ tags:
   description: "What you can do with your Jobs"
 schemes:
 - "https"
+security:
+- UserSecurity: []
 paths:
   /jobs:
     get:
@@ -48,6 +50,8 @@ paths:
       responses:
         200:
           description: "Job succesfully submitted"
+          schema:
+            type: "string"
         405:
           description: "Invalid input"
   /jobs/{jobId}:
@@ -122,6 +126,9 @@ paths:
           description: "Invalid imput"
         404:
           description: "Job not found"
+securityDefinitions:
+  UserSecurity:
+    type: "basic"
 definitions:
   Job:
     type: "object"

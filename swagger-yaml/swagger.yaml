@@ -136,6 +136,7 @@ definitions:
       id:
         type: "integer"
         format: "int32"
+        minimum: 1.0
       description:
         type: "string"
       title:

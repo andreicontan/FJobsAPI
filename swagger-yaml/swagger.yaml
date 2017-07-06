@@ -48,7 +48,7 @@ paths:
         schema:
           $ref: "#/definitions/Job"
       responses:
-        200:
+        201:
           description: "Job succesfully submitted"
         405:
           description: "Invalid input"
@@ -99,7 +99,7 @@ paths:
         schema:
           $ref: "#/definitions/Job"
       responses:
-        200:
+        201:
           description: "Job succesfully updated"
         400:
           description: "Invalid ID"
@@ -120,6 +120,8 @@ paths:
         type: "integer"
         format: "int64"
       responses:
+        204:
+          description: "Job deleted"
         405:
           description: "Invalid imput"
         404:

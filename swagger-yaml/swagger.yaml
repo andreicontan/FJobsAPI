@@ -148,7 +148,7 @@ paths:
         schema:
           $ref: "#/definitions/Student"
       responses:
-        200:
+        201:
           description: "OK"
         404:
           description: "Student not found"

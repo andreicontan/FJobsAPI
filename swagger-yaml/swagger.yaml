@@ -165,8 +165,6 @@ definitions:
   Reward:
     type: "object"
     properties:
-      value:
-        type: "string"
       description:
         type: "string"
   Student:

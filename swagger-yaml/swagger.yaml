@@ -48,7 +48,7 @@ paths:
         schema:
           $ref: "#/definitions/Job"
       responses:
-        200:
+        201:
           description: "Job succesfully submitted"
           schema:
             type: "string"

@@ -49,9 +49,7 @@ paths:
           $ref: "#/definitions/Job"
       responses:
         201:
-          description: "Job succesfully submitted"
-          schema:
-            type: "string"
+          description: "Created"
         405:
           description: "Invalid input"
   /jobs/{jobId}:

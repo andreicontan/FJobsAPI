@@ -11,8 +11,6 @@ tags:
   description: "What you can do with your Jobs"
 schemes:
 - "https"
-security:
-- UserSecurity: []
 paths:
   /jobs:
     get:
@@ -48,7 +46,7 @@ paths:
         schema:
           $ref: "#/definitions/Job"
       responses:
-        201:
+        200:
           description: "Job succesfully submitted"
         405:
           description: "Invalid input"
@@ -99,7 +97,7 @@ paths:
         schema:
           $ref: "#/definitions/Job"
       responses:
-        201:
+        200:
           description: "Job succesfully updated"
         400:
           description: "Invalid ID"
@@ -120,22 +118,17 @@ paths:
         type: "integer"
         format: "int64"
       responses:
-        204:
-          description: "Job deleted"
         405:
           description: "Invalid imput"
         404:
           description: "Job not found"
-securityDefinitions:
-  UserSecurity:
-    type: "basic"
 definitions:
   Job:
     type: "object"
     properties:
       id:
         type: "integer"
-        format: "int64"
+        format: "int32"
       description:
         type: "string"
       title:
@@ -151,7 +144,7 @@ definitions:
       created_date:
         type: "string"
         format: "full-date"
-      start_date:
+      start_time:
         type: "string"
         format: "full-date"
       end_date:

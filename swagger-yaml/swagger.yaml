@@ -125,6 +125,20 @@ paths:
         404:
           description: "Job not found"
   /students/{studentId}:
+    get:
+      tags:
+      - "students"
+      description: "Find student by ID"
+      operationId: "getStudent"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "studentId"
+        in: "path"
+        description: "Inert ID of the student"
+        required: true
+        type: "integer"
+        format: "int64"
     put:
       tags:
       - "students"

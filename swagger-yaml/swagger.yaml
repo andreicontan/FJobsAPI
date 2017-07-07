@@ -139,6 +139,13 @@ paths:
         required: true
         type: "integer"
         format: "int64"
+      responses:
+        200:
+          description: "succesfull operation"
+        405:
+          description: "Invalid input"
+        404:
+          description: "Student not found"
     put:
       tags:
       - "students"

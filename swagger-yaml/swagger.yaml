@@ -128,24 +128,26 @@ paths:
     get:
       tags:
       - "students"
-      description: "Find student by ID"
+      summary: "Find Student by ID"
       operationId: "getStudent"
       produces:
       - "application/json"
       parameters:
       - name: "studentId"
         in: "path"
-        description: "Inert ID of the student"
+        description: "Insert ID of the Student"
         required: true
         type: "integer"
         format: "int64"
       responses:
         200:
           description: "succesfull operation"
+          schema:
+            $ref: "#/definitions/Job"
         405:
-          description: "Invalid input"
+          description: "Invalid imput"
         404:
-          description: "Student not found"
+          description: "Job not found"
     put:
       tags:
       - "students"

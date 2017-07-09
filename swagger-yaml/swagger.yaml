@@ -178,7 +178,7 @@ paths:
         404:
           description: "Student not found"
   /student/apply/job/{jobId}:
-    put:
+    post:
       tags:
       - "student"
       summary: "Apply for a Job"
@@ -199,13 +199,33 @@ paths:
         description: "Updated Student object"
         required: true
         schema:
-          $ref: "#/definitions/Applicant' responses: 200: description: successful\
-            \ operation 400: description: Invalid ID supplied 404: description: Job\
-            \ not found\n/employer/{employerId}: put: tags: - employer description:\
-            \ Update employer info operationId: updateEmployer parameters: - in: path\
-            \ name: employerId description: Employer that needs update his info required:\
-            \ true type: integer format: int64 - in: body name: body description:\
-            \ Update employer object required: true schema: $ref: "
+          $ref: "#/definitions/Applicant"
+      responses:
+        200:
+          description: "successful operation"
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "Job not found"
+  /employer/{employerId}:
+    put:
+      tags:
+      - "employer"
+      description: "Update employer info"
+      operationId: "updateEmployer"
+      parameters:
+      - name: "employerId"
+        in: "path"
+        description: "Employer that needs update his info"
+        required: true
+        type: "integer"
+        format: "int64"
+      - in: "body"
+        name: "body"
+        description: "Update employer object"
+        required: true
+        schema:
+          $ref: "#/definitions/Employer"
       responses:
         201:
           description: "OK"
@@ -229,7 +249,7 @@ definitions:
       address:
         type: "string"
       applicants:
-        $ref: "#/definitions/Applicants"
+        $ref: "#/definitions/Applicant"
       estimated_time:
         type: "integer"
       created_date:

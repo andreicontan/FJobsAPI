@@ -347,10 +347,3 @@ definitions:
         type: "string"
       photo:
         type: "string"
-  User:
-    type: "object"
-    properties:
-      student:
-        $ref: "#/definitions/Student"
-      employer:
-        $ref: "#/definitions/Employer"
